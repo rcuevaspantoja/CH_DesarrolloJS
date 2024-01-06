@@ -59,11 +59,24 @@ const productos = [
 
 let carroTotal = [];
 let valorFinal = 0;
-
+//REVISA SI HAY DATA GUARDADA EN LOCALHOST
 if (localStorage.getItem("localCarroTotal")) {
   carroTotal = JSON.parse(localStorage.getItem("localCarroTotal"));
 }
+//ABRE EL MODAL
+const handleClickCanasta = ( ) =>{
+  const Modal = document.querySelector(".ModalContenedor")
+  Modal.style.display = "flex"
 
+}
+
+//CIERRA MODAL
+const handleClickCerrarCanasta = () => {
+  const Modal = document.querySelector(".ModalContenedor")
+  Modal.style.display = "none"
+}
+
+//AGREGA UN ARTICULO A LA CANASTA
 const AgregarArticulo = (producto) => {
   const productoDetallado = productos.find((e) => e.id == producto);
   carroTotal.push(productoDetallado);
@@ -72,7 +85,8 @@ const AgregarArticulo = (producto) => {
   MostrarCarro();
 };
 
-const CrearCard = () => {
+//CREA LAS CARDS Y LAS MUESTRA EN EL DOM
+const CrearCards = () => {
   //parent
   const ArticulosEnVenta = document.querySelector("#ArticulosEnVenta");
   const Cards = document.createElement("div");
@@ -89,7 +103,7 @@ const CrearCard = () => {
             <h5 class="card-title">$${data.valor.toLocaleString("en-US")}</h5>
             <p class="card-brand"> ${data.nombreMarca}</p>
             <p class="card-text mb-auto">${data.nombreProducto}</p>
-            <a href="#" class="btn btn-card btn-primary mt-auto" onClick="AgregarArticulo(${
+            <a class="btn btn-card btn-primary mt-auto" onClick="AgregarArticulo(${
               data.id
             })" >Agregar</a>
         </div>
@@ -97,8 +111,9 @@ const CrearCard = () => {
     Articulos.appendChild(Card);
   });
 };
-CrearCard();
+CrearCards();
 
+//ACTUALIZA EL CANASTO EN LA NAVBAR
 const ActualizarCarro = () => {
   let valor = 0;
   const Carro = document.querySelector(".canasta");
@@ -107,21 +122,17 @@ const ActualizarCarro = () => {
   const CarroValor = document.querySelector(".valorCarro");
   carroTotal.map((item) => {
     valor = valor + item.valor;
-    console.log(valor, parseFloat(item.valor), item.valor);
   });
 
-  CarroValor.innerHTML = `$${Math.trunc(valor)}`;
+  CarroValor.innerHTML = `$${Math.trunc(valor).toLocaleString("en-US")}`;
   valorFinal = valor;
 };
 ActualizarCarro();
 
+//CREA LA INFORMACIÓN DENTRO DEL MODAL
 const MostrarCarro = () => {
-  const Modal = document.querySelector(".Modal");
-  const DivDetalleCompra =document.createElement("div")
-  DivDetalleCompra.classList.add("DetalleCompra")
   const DetalleCompra = document.querySelector(".DetalleCompra");
-  Modal.appendChild(DivDetalleCompra)
-
+  DetalleCompra.innerHTML = ``;
   carroTotal.map((data) => {
     const Item = document.createElement("spam");
     Item.classList.add("ItemDetalleCompra");
@@ -133,16 +144,14 @@ const MostrarCarro = () => {
     DetalleCompra.appendChild(Item);
   });
 
-  const SubTotal = document.createElement("div");
-  SubTotal.classList.add("subTotal");
-  SubTotal.innerHTML = `
-  <spam class="ValorTotalDetalleCompra">TOTAL : $${valorFinal.toLocaleString("en-US")}</spam>        
-  <button class="btn btn-warning">CANCELAR</button>
-  <button class="btn btn-pagar">PAGAR</button>
-  `;
-
-  Modal.append(SubTotal);
+  const SubTotal = document.querySelector(".ValorTotalDetalleCompra");
+  SubTotal.innerHTML = `$${valorFinal.toLocaleString("en-US")}`;
 };
 MostrarCarro();
 
-localStorage.clear();
+//HANDLECLICK BOTON PAGAR
+const PagarCarro = () => {
+  localStorage.clear();
+  location.reload();
+};
+

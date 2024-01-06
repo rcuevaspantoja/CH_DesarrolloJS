@@ -19,7 +19,7 @@
         <h1>Bazar Online</h1>
         <div class="carro">
             <spam class="navbar-text valorCarro">$0</spam>
-            <button class="btn btn-navbar">
+            <button class="btn btn-navbar" onclick="handleClickCanasta()">
                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" class="bi bi-cart"
                     viewBox="0 0 16 16">
                     <path
@@ -37,14 +37,17 @@
     </section>
 
     <!-- Modal content -->
-    <section class="Modal">
-
-        <h3>Articulos en carro</h3>
-
-        
-
-
-
+    <section class="ModalContenedor">
+        <div class="Modal">
+            <h3>Articulos en carro</h3>
+        <div class="DetalleCompra">
+        </div>
+        <div class="subTotal">
+            <spam class="ValorTotalDetalleCompra">$0</spam>
+            <button class="btn btn-warning" onClick="handleClickCerrarCanasta()">CANCELAR</button>
+            <button class="btn btn-pagar" onClick="PagarCarro()">PAGAR</button>
+        </div>
+        </div>
     </section>
 
     <Footer>
