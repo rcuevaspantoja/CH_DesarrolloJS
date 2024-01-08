@@ -54,7 +54,49 @@ const productos = [
     imagenRuta: "../assets/productos/item_chocman.png",
     nombreMarca: "Costa",
     valor: 1999,
+  },  {
+    id: 8,
+    nombreProducto: "Galletas limón & chocolate blanco 200 g",
+    imagenRuta: "../assets/productos/imagen_lemonCookies.png",
+    nombreMarca: "Merba",
+    valor: 2699 ,
   },
+   {
+    id: 9,
+    nombreProducto: "Shampoo Dove Men Sport Active Fresh 400 ml",
+    imagenRuta: "../assets/productos/imagen_doveMen.png",
+    nombreMarca: "Dove Men",
+    valor: 2939,
+  },
+  {
+    id: 10,
+    nombreProducto: "Mini Turron 300 g",
+    imagenRuta: "../assets/productos/imagen_turron.png",
+    nombreMarca: "Ambrosoli",
+    valor: 1749,
+  },
+  {
+    id: 11,
+    nombreProducto: "Pack 4 un. Cerveza Kunstmann Torobayo botella 330 cc",
+    imagenRuta: "../assets/productos/imagen_torobayo.png",
+    nombreMarca: "Kunstmann",
+    valor: 4990,
+  },
+  {
+    id: 12,
+    nombreProducto: "Bebida Bilz Zero 1.5 L",
+    imagenRuta: "../assets/productos/imagen_bilz.png",
+    nombreMarca: "Bilz",
+    valor: 1990,
+  },
+  {
+    id: 13,
+    nombreProducto: "Chocolate Bombónes Cerezas al Licor 120 g",
+    imagenRuta: "../assets/productos/imagen_chocolate.png",
+    nombreMarca: "Ambrosoli",
+    valor: 2719,
+  },
+ 
 ];
 
 let carroTotal = [];
