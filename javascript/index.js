@@ -187,13 +187,21 @@ const MostrarCarro = () => {
   });
 
   const SubTotal = document.querySelector(".ValorTotalDetalleCompra");
-  SubTotal.innerHTML = `$${valorFinal.toLocaleString("en-US")}`;
+  SubTotal.innerHTML = `Valor Total = $${valorFinal.toLocaleString("en-US")}`;
 };
 MostrarCarro();
 
 //HANDLECLICK BOTON PAGAR
 const PagarCarro = () => {
+  Swal.fire({
+    title: "Compra Exitosa!",
+    text: `Se ha realizado una compra por $${valorFinal.toLocaleString("en-US")} CLP.`,
+    icon: "success",
+  }).then((result) =>{
+    if(result['isConfirmed']){
+      location.reload()
+    }
+  });
   localStorage.clear();
-  location.reload();
 };
 
