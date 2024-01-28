@@ -98,7 +98,6 @@
   },
  
 ]; */
-
 let carroTotal = [];
 let valorFinal = 0;
 //REVISA SI HAY DATA GUARDADA EN LOCALHOST
@@ -130,7 +129,7 @@ const AgregarArticulo = (producto) => {
 //FETCH al JSON
 const FetchDatos = async ()=>{
   try{
-    const data = await fetch('../assets/productos.json')
+    const data = await fetch("./../assets/productos.json")
     const EsperarDatos = await data.json()
     console.log(EsperarDatos)
   
@@ -139,12 +138,9 @@ const FetchDatos = async ()=>{
     console.warn(err)
   }
 }
-
+FetchDatos()
 //CREA LAS CARDS Y LAS MUESTRA EN EL DOM
 const CrearCards = () => {
-  FetchDatos
-
-  /*
   //parent
   const ArticulosEnVenta = document.querySelector("#ArticulosEnVenta");
   const Cards = document.createElement("div");
@@ -168,9 +164,8 @@ const CrearCards = () => {
         `;
     Articulos.appendChild(Card);
   });
-  */
 };
-CrearCards();
+//CrearCards();
 
 //ACTUALIZA EL CANASTO EN LA NAVBAR
 const ActualizarCarro = () => {
