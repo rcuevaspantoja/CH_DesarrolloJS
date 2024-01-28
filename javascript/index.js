@@ -1,103 +1,103 @@
-const productos = [
+/* const productos = [
   {
     id: 0,
     nombreProducto: "Mix de berries 400g",
-    imagenRuta: "../assets/productos/item_berries.png",
+    imagenRuta: "../assets/producto_imagen/item_berries.png",
     nombreMarca: "Frutos del Maipo",
     valor: 3799,
   },
   {
     id: 1,
     nombreProducto: "Bebida Coca-Cola sin Azúcar 1.5L",
-    imagenRuta: "../assets/productos/item_cocacola.jpg",
+    imagenRuta: "../assets/producto_imagen/item_cocacola.jpg",
     nombreMarca: "Coca-Cola",
     valor: 1499,
   },
   {
     id: 2,
     nombreProducto: "Bebida Isotónica Gatorade Blue 1L",
-    imagenRuta: "../assets/productos/item_gatorade.png",
+    imagenRuta: "../assets/producto_imagen/item_gatorade.png",
     nombreMarca: "Gatorade",
     valor: 1529,
   },
   {
     id: 3,
     nombreProducto: "Queso Mantecoso Quilque Laminado 500g",
-    imagenRuta: "../assets/productos/item_queso.jpg",
+    imagenRuta: "../assets/producto_imagen/item_queso.jpg",
     nombreMarca: "Soprole",
     valor: 5099,
   },
   {
     id: 4,
     nombreProducto: "Helado Papaya a la crema 1L",
-    imagenRuta: "../assets/productos/item_helado.png",
+    imagenRuta: "../assets/producto_imagen/item_helado.png",
     nombreMarca: "San Francisco de Loncomilla",
     valor: 4999,
   },
   {
     id: 5,
     nombreProducto: "Pechuga Deshuesada 850gr",
-    imagenRuta: "../assets/productos/item_pechuga.png",
+    imagenRuta: "../assets/producto_imagen/item_pechuga.png",
     nombreMarca: "Super Pollo",
     valor: 5499,
   },
   {
     id: 6,
     nombreProducto: "Leche Descremada 1L",
-    imagenRuta: "../assets/productos/item_leche.png",
+    imagenRuta: "../assets/producto_imagen/item_leche.png",
     nombreMarca: "Cuisine & Co",
     valor: 969,
   },
   {
     id: 7,
     nombreProducto: "Bizcocho Chocman Pack 8u. 33gr",
-    imagenRuta: "../assets/productos/item_chocman.png",
+    imagenRuta: "../assets/producto_imagen/item_chocman.png",
     nombreMarca: "Costa",
     valor: 1999,
   },  {
     id: 8,
     nombreProducto: "Galletas limón & chocolate blanco 200 g",
-    imagenRuta: "../assets/productos/imagen_lemonCookies.png",
+    imagenRuta: "../assets/producto_imagen/imagen_lemonCookies.png",
     nombreMarca: "Merba",
     valor: 2699 ,
   },
    {
     id: 9,
     nombreProducto: "Shampoo Dove Men Sport Active Fresh 400 ml",
-    imagenRuta: "../assets/productos/imagen_doveMen.png",
+    imagenRuta: "../assets/producto_imagen/imagen_doveMen.png",
     nombreMarca: "Dove Men",
     valor: 2939,
   },
   {
     id: 10,
     nombreProducto: "Mini Turron 300 g",
-    imagenRuta: "../assets/productos/imagen_turron.png",
+    imagenRuta: "../assets/producto_imagen/imagen_turron.png",
     nombreMarca: "Ambrosoli",
     valor: 1749,
   },
   {
     id: 11,
     nombreProducto: "Pack 4 un. Cerveza Kunstmann Torobayo botella 330 cc",
-    imagenRuta: "../assets/productos/imagen_torobayo.png",
+    imagenRuta: "../assets/producto_imagen/imagen_torobayo.png",
     nombreMarca: "Kunstmann",
     valor: 4990,
   },
   {
     id: 12,
     nombreProducto: "Bebida Bilz Zero 1.5 L",
-    imagenRuta: "../assets/productos/imagen_bilz.png",
+    imagenRuta: "../assets/producto_imagen/imagen_bilz.png",
     nombreMarca: "Bilz",
     valor: 1990,
   },
   {
     id: 13,
     nombreProducto: "Chocolate Bombónes Cerezas al Licor 120 g",
-    imagenRuta: "../assets/productos/imagen_chocolate.png",
+    imagenRuta: "../assets/producto_imagen/imagen_chocolate.png",
     nombreMarca: "Ambrosoli",
     valor: 2719,
   },
  
-];
+]; */
 
 let carroTotal = [];
 let valorFinal = 0;
@@ -127,8 +127,24 @@ const AgregarArticulo = (producto) => {
   MostrarCarro();
 };
 
+//FETCH al JSON
+const FetchDatos = async ()=>{
+  try{
+    const data = await fetch('../assets/productos.json')
+    const EsperarDatos = await data.json()
+    console.log(EsperarDatos)
+  
+  }
+  catch(err){
+    console.warn(err)
+  }
+}
+
 //CREA LAS CARDS Y LAS MUESTRA EN EL DOM
 const CrearCards = () => {
+  FetchDatos
+
+  /*
   //parent
   const ArticulosEnVenta = document.querySelector("#ArticulosEnVenta");
   const Cards = document.createElement("div");
@@ -152,6 +168,7 @@ const CrearCards = () => {
         `;
     Articulos.appendChild(Card);
   });
+  */
 };
 CrearCards();
 
